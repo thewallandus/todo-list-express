@@ -1,7 +1,10 @@
 h1{
     color: red;
 }
+/* selects any h1 tags in the ejs file */
 .completed{
     color: gray;
     text-decoration: line-through;
 }
+/* makes the completed item gray */
+/* text decoration makes it appear struck through */
