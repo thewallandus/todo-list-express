@@ -8,40 +8,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body> 
+    <!-- main section for content displayed -->
     <!DOCTYPE html>
-<html lang="en">
+    <!-- this may be a typo -->
+<html lang="en"> 
+    <!-- typo -->
 <head>
+    <!-- typo -->
     <meta charset="UTF-8">
+    <!-- typo -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- typo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- typo -->
     <title>Document</title>
+    <!-- typo -->
 </head>
 <body>
     <h1>Todo List: </h1>
+    <!-- the main heading of Todo List -->
     <ul class="todoItems">
+    <!-- a class of todo items that's set to an unordered list -->
     <% for(let i=0; i < items.length; i++) {%>
+        <!-- <% is the start of the javascript by using ejs %> -->
+        <!-- ^ this is javascript embedded inside ejs -->
         <li class="item">
+            <!-- ^creating a list item with a class of item -->
             <% if(items[i].completed === true) {%>
+                <!-- ^ that's javascript being injected again -->
+                <!-- in that javascript, you have an if -->
+                <!-- checking if items[i].completed is true -->
+                <!-- then show items[i].thing inside a span -->
                 <span class='completed'><%= items[i].thing %></span>
+                <!-- we have some ejs to display the name of the task -->
+                <!-- the class of completed is -->
+                <!-- this class leads to the strikethrough -->
             <% }else{ %>
+                <!-- eJS for the else clause of our if statement -->
                 <span><%= items[i].thing %></span>
+                <!-- show the items[i].thing but with no class -->
             <% } %>    
+            <!-- ejs to close the else statement -->
             <span class='fa fa-trash'></span>
+            <!-- Display Font Awesome Icon of trash inside a span right next to the list item -->
         </li>
+        <!-- we're closing our list item -->
     <% } %>
+    <!-- we're ending our ejs as the for loop -->
     </ul>
 
     <h2>Left to do: <%= left %></h2>
-
-    <h2>Add A Todo:</h2>
-
+    <!-- ^we create an html tag -->
+    <!-- ^we're displaying some text here -->
+    <!--  ^we're then starting the ejs and it is a variable which is how many tasks are left to complete -->
+    <h2>Add A Todo:</h2>    
+    <!-- add a todo which is a second level header -->
     <form action="/addTodo" method="POST">
+        <!-- it is creating a form with a POST method that is the create method that is going to the /addTodo route -->
+        <!-- What is post? It is the C in CRUD => Create. -->
+        <!-- the action is the place that is going to know exactly what to hit -->
         <input type="text" placeholder="Thing To Do" name="todoItem">
+        <!-- creating an input box that takes in text. Placeholder is the text that's available from start. -->
         <input type="submit">
+        <!-- input type submit is submitting the button we need -->
     </form>
-    
+    <!-- we're closing the form tag -->
 
     <script src='js/main.js'></script>
 </body>
 </html>
+
+<!-- main page of the app -->
+
