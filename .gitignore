@@ -1,2 +1,4 @@
 node_modules
 .env
+
+//^ the stuff you don't want to push to githubs
