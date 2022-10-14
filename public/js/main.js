@@ -68,6 +68,7 @@ async function deleteItem(){ // starting an asynchronous function
 
 async function markComplete(){ // declare an async function
     const itemText = this.parentNode.childNodes[1].innerText
+    // it's grabbing that todo text of getPizza out of the DOM
     // we're selecting itemText
     // reaching into the span
     // and getting innertext of that span
