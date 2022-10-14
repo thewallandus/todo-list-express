@@ -58,7 +58,7 @@ app.get('/',async (request, response)=>{ // read of CRUD
     // request that we make
     // and the response we get back from it
 
-    const todoItems = await db.collection('todos').find().toArray() // it is going to the db object and gets the collection of 'todos' then finding something then transforms it to array
+    const todoItems = await db.collection('todos').find().toArray() // it is going to the db object and gets the collection of 'todos' then finding the objects of todos which it then transforms it to array
     const itemsLeft = await db.collection('todos').countDocuments({completed: false})
     // we're setting a variable and awaits and that's getting the count of documents
     // we need this data to display the total number of items that we need to display in EJS
@@ -72,6 +72,9 @@ app.get('/',async (request, response)=>{ // read of CRUD
     //     db.collection('todos').countDocuments({completed: false})
     //     .then(itemsLeft => {
     //         response.render('index.ejs', { items: data, left: itemsLeft })
+    // this line says I am passing data into my ejs template
+    // and I am giving them a name that is items => now I am going to see items moving forward not data
+    // that is now passed into the ejs
     //     })
     // })
     // ^// this is doing it with .then
@@ -79,12 +82,13 @@ app.get('/',async (request, response)=>{ // read of CRUD
     // .catch(error => console.error(error))
 })
 
-app.post('/addTodo', (request, response) => { // here /addTodo
+app.post('/addTodo', (request, response) => { // here /addTodo => comes from the action on the form that made the post request
     // post method is the create method in CRUD when the addTodo route is passed in
     // this is coming from the form
     // the action was addTodo
     // here we are syncing with it
     db.collection('todos').insertOne({thing: request.body.todoItem, completed: false})
+    // this todoItem is coming from the input which has the name of todoItem
     // go to the db find collection that has todos
     // we're inserting a newitem
     // there is a request coming from the client side
@@ -100,6 +104,7 @@ app.post('/addTodo', (request, response) => { // here /addTodo
         response.redirect('/') // once it is done, and the thing has been updated, render the main page again
         // so it's like I don't want to stay in /addTodo
         // no I want to be in /
+        // my response is to refresh
     })
     .catch(error => console.error(error))
     // in case there are any errors I can catch it
