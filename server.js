@@ -125,7 +125,7 @@ app.put('/markComplete', (request, response) => {
     })
     .then(result => { // starting a then if update was successful
         console.log('Marked Complete') // saying update was complete
-        response.json('Marked Complete') // we send this response back to the sender in main.js
+         response.json('Marked Complete') // we send this response back to the sender in main.js
     })
     .catch(error => console.error(error)) // we're catching errors
 
